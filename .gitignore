@@ -2,3 +2,6 @@
 *.swp
 boatd/__pycache__
 build/
+.coverage
+.tox/
+boatd.egg-info/
