@@ -23,7 +23,6 @@ setup(
     scripts=['bin/boatd'],
     install_requires=[
         'PyYAML',
-        'six',
         'pyserial',
         'tornado',
         ],
