@@ -26,6 +26,12 @@ from .config import Config
 
 log = logging.getLogger(__name__)
 
+def reldir(file, name):
+    '''Return a path to a directory in the same directory as file'''
+
+    path, _ = os.path.split(file)
+
+    return os.path.join(path, name)
 
 class Boatd(object):
     def __init__(self, boat, waypoint_manager):
@@ -83,7 +89,7 @@ def start_plugin(module, conf, boat, waypoint_manager):
 
 
 def load_plugins(conf, boat, waypoint_manager):
-    plugin_dirs = [utils.reldir(__file__, 'coreplugins')]
+    plugin_dirs = [yreldir(__file__, 'coreplugins')]
 
     if conf.get('plugin_directory') is not None:
         plugin_dirs += [conf.plugin_directory]
