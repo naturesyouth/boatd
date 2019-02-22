@@ -9,6 +9,9 @@ PLUGIN_DIR = os.path.join(d, 'plugin')
 PLUGIN_FILENAME = os.path.join(PLUGIN_DIR, 'small_plugin.py')
 
 class TestPlugin(unittest.TestCase):
+    def test_reldir(self):
+        assert boatd.plugin.reldir('test/thing.py', 'dir') == 'test/dir'
+
     def test_find_plugins(self):
         plugins = boatd.plugin.find_plugins([PLUGIN_DIR], ['small_plugin'])
         print(plugins)
